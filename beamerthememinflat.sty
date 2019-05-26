@@ -204,61 +204,61 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%	define progress bar header
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcounter{progressBarCounter}
-\defbeamertemplate*{headline}{flat header}{%
-	\vspace*{.5em}
+% \newcounter{progressBarCounter}
+% \defbeamertemplate*{headline}{flat header}{%
+% 	\vspace*{.5em}
 	
-	\newcount\totalFrameNumberWithoutThx
-	\totalFrameNumberWithoutThx=\inserttotalframenumber
-	\advance \totalFrameNumberWithoutThx by -1
+% 	\newcount\totalFrameNumberWithoutThx
+% 	\totalFrameNumberWithoutThx=\inserttotalframenumber
+% 	\advance \totalFrameNumberWithoutThx by -1
 	
-    \def\tmp@valx{\value{schroedinger}}%
-		\ifnum\tmp@valx=-1%
-    	$??$%
-  	\else%
-		\setcounter{progressBarCounter}{1}\relax\loop\ifnum\theprogressBarCounter<\theschroedinger%
-			\def\getSectionLabel{sec-\theprogressBarCounter}
-			\newcount\frameNumber
-			\frameNumber=\getrefnumber{\getSectionLabel}%\getpagerefnumber{\getSectionLabel}
-			\advance \frameNumber by 1
-			\dimen1=\textwidth
-			\multiply\dimen1 by \frameNumber
-			\divide\dimen1 by \totalFrameNumberWithoutThx
-			\advance \dimen1 by -20pt
-			\edef\labelAlignmentWidth{\the\dimen1}
-			\expandafter\edef\csname sectionWidth\the\value{progressBarCounter}\endcsname{\labelAlignmentWidth}
-			\expandafter\edef\csname sectionTitle\the\value{progressBarCounter}\endcsname{\getSectionLabel}
-			\stepcounter{progressBarCounter}\relax\repeat%
-	    \leavevmode%  
+%     \def\tmp@valx{\value{schroedinger}}%
+% 		\ifnum\tmp@valx=-1%
+%     	$??$%
+%   	\else%
+% 		\setcounter{progressBarCounter}{1}\relax\loop\ifnum\theprogressBarCounter<\theschroedinger%
+% 			\def\getSectionLabel{sec-\theprogressBarCounter}
+% 			\newcount\frameNumber
+% 			\frameNumber=\getrefnumber{\getSectionLabel}%\getpagerefnumber{\getSectionLabel}
+% 			\advance \frameNumber by 1
+% 			\dimen1=\textwidth
+% 			\multiply\dimen1 by \frameNumber
+% 			\divide\dimen1 by \totalFrameNumberWithoutThx
+% 			\advance \dimen1 by -20pt
+% 			\edef\labelAlignmentWidth{\the\dimen1}
+% 			\expandafter\edef\csname sectionWidth\the\value{progressBarCounter}\endcsname{\labelAlignmentWidth}
+% 			\expandafter\edef\csname sectionTitle\the\value{progressBarCounter}\endcsname{\getSectionLabel}
+% 			\stepcounter{progressBarCounter}\relax\repeat%
+% 	    \leavevmode%  
 
-		\dimen0=\textwidth
-	    \multiply\dimen0 by \insertframenumber
-	    \divide\dimen0 by \totalFrameNumberWithoutThx
-	    	\advance\dimen0 by -20pt
-	    \edef\slidesProgressbarWidth{\the\dimen0}
+% 		\dimen0=\textwidth
+% 	    \multiply\dimen0 by \insertframenumber
+% 	    \divide\dimen0 by \totalFrameNumberWithoutThx
+% 	    	\advance\dimen0 by -20pt
+% 	    \edef\slidesProgressbarWidth{\the\dimen0}
 			
-		\begin{tikzpicture}[every node/.style={black!50!white,\labelAlignmentHelper,yshift=-4pt}]
-			\draw[progressbar green] (0,0) -- (\slidesProgressbarWidth,0);
+% 		\begin{tikzpicture}[every node/.style={black!50!white,\labelAlignmentHelper,yshift=-4pt}]
+% 			\draw[progressbar green] (0,0) -- (\slidesProgressbarWidth,0);
 			
-			\advance \value{schroedinger} by -1
-			\foreach \i in {1,...,\theschroedinger} {
-				\ifdim\csname sectionWidth\i \endcsname>345pt
-					\def\labelAlignmentHelper{below left}
-				\else
-					\def\labelAlignmentHelper{below}
-				\fi
+% 			\advance \value{schroedinger} by -1
+% 			\foreach \i in {1,...,\theschroedinger} {
+% 				\ifdim\csname sectionWidth\i \endcsname>345pt
+% 					\def\labelAlignmentHelper{below left}
+% 				\else
+% 					\def\labelAlignmentHelper{below}
+% 				\fi
 			
-				\ifnum\the\c@section=\i
-					\draw[draw=white,fill=progressbar green,thick] (\csname sectionWidth\i \endcsname,0) circle [radius=4pt];
-					\draw (\csname sectionWidth\i \endcsname,0) node[fill=white,font=\bfseries]{ \ \hyperlink{sec-\i}{\nameref{\csname sectionTitle\i \endcsname}} };
-				\else
-					\draw[draw=progressbar green,fill=white] (\csname sectionWidth\i \endcsname,0) circle [radius=3pt];
-					\draw (\csname sectionWidth\i \endcsname,0) node[]{ \ \hyperlink{sec-\i}{\nameref{\csname sectionTitle\i \endcsname}} };			
-				\fi
-			};
-		\end{tikzpicture}
-	\fi
-}
+% 				\ifnum\the\c@section=\i
+% 					\draw[draw=white,fill=progressbar green,thick] (\csname sectionWidth\i \endcsname,0) circle [radius=4pt];
+% 					\draw (\csname sectionWidth\i \endcsname,0) node[fill=white,font=\bfseries]{ \ \hyperlink{sec-\i}{\nameref{\csname sectionTitle\i \endcsname}} };
+% 				\else
+% 					\draw[draw=progressbar green,fill=white] (\csname sectionWidth\i \endcsname,0) circle [radius=3pt];
+% 					\draw (\csname sectionWidth\i \endcsname,0) node[]{ \ \hyperlink{sec-\i}{\nameref{\csname sectionTitle\i \endcsname}} };			
+% 				\fi
+% 			};
+% 		\end{tikzpicture}
+% 	\fi
+% }
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

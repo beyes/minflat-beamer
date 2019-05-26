@@ -1,0 +1,10 @@
+\frametitle{Overlays \& Images}
+^^IComplying with the old saying: \enquote{A picture speaks a thousand words}, we can create frames which only contain a picture by
+^^I\begin{center}
+^^I^^I\texttt{\textbackslash imageFrame\{imageURL\}.}
+^^I\end{center}
+^^IWe can also define an overlay on the left oder right side of the frame. By default the overlay has a width of 150pt. We can adjust as an optional argument.
+^^I\begin{verbatim} \imageFrameOverlayLeft[optional width]{%
+    ./gfx/horizontallift.pdf}{%
+    Want big impact?}{%
+    Use a big picture.} \end{verbatim}
