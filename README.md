@@ -10,11 +10,6 @@ The minflat theme is a Beamer theme in modern flat design, i.e. emphasising a mi
 
 3. **Use the theme for your presentation** by declaring `\usetheme{minflat}` in the preamble of your Beamer document. Please note the options in the manual.
 
-
-## Usage
-
-Detailed information can be found in the [manual][].
-
 ## License
 
 The theme itself is licensed under a [Creative Commons Attribution-ShareAlike
